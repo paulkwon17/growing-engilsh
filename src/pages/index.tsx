@@ -1,26 +1,26 @@
-import Logo from '@components/atoms/Logo';
-import { css } from '@emotion/react';
+import { Button } from '@components/atoms/button';
+import { GrowingLogo } from '@components/atoms/logo';
 import styled from '@emotion/styled';
-import Colors from '@styles/colors';
-import { H1, H2, Title } from '@styles/typography';
 
 export default function Home() {
   return (
     <Styles.Container>
-      <Styles.TitleContainer>
-        <Styles.LogoContainer>
-          <Logo />
-        </Styles.LogoContainer>
-      </Styles.TitleContainer>
+      <Styles.LogoContainer>
+        <GrowingLogo />
+        <Styles.ButtonContainer>
+          <Button link="student">학생용 페이지</Button>
+          <Button link="teacher">교사용 페이지</Button>
+        </Styles.ButtonContainer>
+      </Styles.LogoContainer>
     </Styles.Container>
   );
 }
 
 const Styles = {
-  Container: styled.div``,
-  TitleContainer: styled.div`
-    padding: 200px 50px;
-    height: 2000px;
+  Container: styled.div`
+    width: 100%;
+    height: 100vh;
+    padding: 200px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,13 +32,21 @@ const Styles = {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    top: 0;
-    gap: 5px;
+    top: 30px;
+    gap: 30px;
+
+    svg {
+      width: min(100%, 779px);
+    }
   `,
-  Title: css({
-    ...Title,
-  }),
-  SubTitle: css({
-    ...H1,
-  }),
+  ButtonContainer: styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  `,
 };
