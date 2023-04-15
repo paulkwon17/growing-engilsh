@@ -7,7 +7,7 @@ interface StudentNavBarProps {
 
 export const StudentNavBar = ({ visible }: StudentNavBarProps) => {
   return (
-    <NavBar visible={visible}>
+    <NavBar link="/student" visible={visible}>
       <Nav link="/student/quiz">Quiz</Nav>
       <Nav link="/student/word">Word</Nav>
       <Nav link="/student/passage">Passage</Nav>

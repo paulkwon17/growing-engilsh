@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import Colors from '@styles/colors';
-import { Caption2, Caption2_B } from '@styles/typography';
+import { Caption2 } from '@styles/typography';
 
 export const Footer = () => {
   return (
@@ -21,7 +21,7 @@ const Styles = {
     text-align: center;
 
     span {
-      ${Caption2_B}
+      ${Caption2}
       color: ${Colors.text03}
     }
   `,

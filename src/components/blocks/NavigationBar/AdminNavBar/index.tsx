@@ -5,5 +5,5 @@ interface AdminNavBarProps {
 }
 
 export const AdminNavBar = ({ visible }: AdminNavBarProps) => {
-  return <NavBar visible={visible}></NavBar>;
+  return <NavBar link="/admin" visible={visible}></NavBar>;
 };

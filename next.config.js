@@ -8,11 +8,14 @@ const nextConfig = {
   compiler: {
     emotion: true,
   },
+  env: {
+    BASE_URL: process.env.NEXT_PUBLIC_MONGODB_URI,
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ["@svgr/webpack"],
+      use: ['@svgr/webpack'],
     });
     return config;
   },

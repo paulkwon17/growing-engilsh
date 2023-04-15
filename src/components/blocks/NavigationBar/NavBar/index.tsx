@@ -4,15 +4,16 @@ import { ReactElement } from 'react';
 import * as S from './styles';
 
 interface NavBarProps {
+  link: string;
   visible: boolean;
   children?: ReactElement[];
 }
 
-const NavBar = ({ children, visible }: NavBarProps) => {
+const NavBar = ({ link, children, visible }: NavBarProps) => {
   return (
     <S.Container visible={visible}>
       <S.ContentWrap>
-        <Link href="/" css={S.Logo}>
+        <Link href={link} css={S.Logo}>
           <GrowingIcon />
         </Link>
         {children && <S.NavContainer>{children}</S.NavContainer>}

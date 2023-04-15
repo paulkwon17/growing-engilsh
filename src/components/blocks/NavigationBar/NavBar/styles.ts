@@ -1,3 +1,4 @@
+import { VIEWPORT } from '@constants/app/viewport';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import Colors from '@styles/colors';
@@ -38,7 +39,7 @@ export const NavContainer = styled.div`
   align-items: center;
   gap: 40px;
 
-  @media (min-width: 768px) {
+  @media (${VIEWPORT.TABLET}) {
     display: flex;
   }
 `;

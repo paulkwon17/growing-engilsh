@@ -6,8 +6,20 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { throttle } from 'lodash';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            retry: 2,
+          },
+        },
+      }),
+  );
+
   const { pathname } = useRouter();
   const [visible, setVisible] = useState(true);
   const beforeScrollY = useRef(0);
@@ -40,14 +52,14 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [handleScroll]);
 
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Global styles={globalStyles} />
       <NavigationBar pageType={pathname.split('/')[1]} visible={visible} />
       <div css={styles.main(showNav() && visible)}>
         <Component {...pageProps} />
       </div>
       <Footer />
-    </>
+    </QueryClientProvider>
   );
 }
 
@@ -56,7 +68,7 @@ const styles = {
     margin-top: ${showNav ? '50px' : '0px'};
     display: flex;
     justify-content: center;
-    transition: 0.5s all ease-in-out;
+    transition: 0.05s all linear;
     flex: 1;
   `,
 };

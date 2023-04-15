@@ -1,5 +1,6 @@
 import { Button } from '@components/atoms/button';
 import { GrowingLogo } from '@components/atoms/logo';
+import { VIEWPORT } from '@constants/app/viewport';
 import styled from '@emotion/styled';
 
 export default function Home() {
@@ -45,7 +46,7 @@ const Styles = {
     flex-direction: column;
     gap: 10px;
 
-    @media (min-width: 768px) {
+    @media (${VIEWPORT.TABLET}) {
       flex-direction: row;
     }
   `,

@@ -7,7 +7,7 @@ interface TeacherNavBarProps {
 
 export const TeacherNavBar = ({ visible }: TeacherNavBarProps) => {
   return (
-    <NavBar visible={visible}>
+    <NavBar link="/teacher" visible={visible}>
       <Nav link="/teacher/student">Student</Nav>
       <Nav link="/teacher/test">Test</Nav>
       <Nav link="/teacher/quiz">Quiz</Nav>
