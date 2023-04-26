@@ -18,12 +18,3 @@ export interface PutTodoItemInfoRequest {
     deadline: string;
   };
 }
-
-export interface TodoListInfo {
-  _id: string;
-  todoItemId: string;
-  check: boolean;
-  sid: string;
-}
-
-export type GetTodoListInfoResponse = TodoListInfo;

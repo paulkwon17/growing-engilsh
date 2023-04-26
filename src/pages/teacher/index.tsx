@@ -1,3 +1,4 @@
+import { VIEWPORT } from '@constants/app/viewport';
 import styled from '@emotion/styled';
 
 export default function TeacherMain() {
@@ -6,7 +7,15 @@ export default function TeacherMain() {
 
 const Styles = {
   Container: styled.div`
-    height: 3000px;
-    padding: 0 10px;
+    width: min(100%, 1920px);
+    height: 100vh;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (${VIEWPORT.TABLET}) {
+      flex-direction: row;
+    }
   `,
 };

@@ -8,14 +8,14 @@ export interface TodoList {
   todoListId: string;
   todoItemId: string;
   check: boolean;
-  sid: string;
+  memberId: string;
 }
 
 export interface Todo {
-  todoListId: string;
+  _id: string;
   todoItemId: string;
   name: string;
   deadline: string;
   check: boolean;
-  sid: string;
+  memberId: string;
 }

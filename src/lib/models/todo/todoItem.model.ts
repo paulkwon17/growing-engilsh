@@ -11,7 +11,7 @@ export const TodoItemSchema = new Schema(
       required: true,
     },
   },
-  { timestamps: true },
+  { timestamps: true, versionKey: false },
 );
 
 const TodoItem = models?.TodoItem || mongoose.model('TodoItem', TodoItemSchema);

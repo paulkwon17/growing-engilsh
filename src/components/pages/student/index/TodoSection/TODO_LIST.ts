@@ -13,16 +13,16 @@ export const TODO_CHECK: TodoList[] = [
     todoListId: '0',
     todoItemId: '0',
     check: false,
-    sid: 'sampleSid',
+    memberId: 'sampleMemberId',
   },
 ];
 
 export const TODO_LIST: Todo[] = [
   {
-    todoListId: '0',
+    _id: '0',
     todoItemId: '0',
     check: false,
-    sid: 'sampleSid',
+    memberId: 'sampleMemberId',
     name: 'sampleName',
     deadline: '2023-04-09',
   },

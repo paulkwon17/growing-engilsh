@@ -5,12 +5,12 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const handler = createHandler();
 
 handler.get(async (_req: NextApiRequest, res: NextApiResponse) => {
-  const data = await TodoList.find({});
+  const data = await TodoList.find({}).populate('todoItemId');
   res.status(200).json(data);
 });
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
-  const { todoItemId, check, sid } = req.body;
-  const todoList = new TodoList({ todoItemId, check, sid });
+  const { todoItemId, check, memberId } = req.body;
+  const todoList = new TodoList({ todoItemId, check, memberId });
   await todoList.save();
   res.status(200).json({ message: 'Test created successfully' });
 });

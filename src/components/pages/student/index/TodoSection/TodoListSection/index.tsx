@@ -1,3 +1,4 @@
+import { usePutTodoCheckById } from '@api/todoList';
 import { TodoIcon } from '@components/atoms';
 import Colors from '@styles/colors';
 import { Todo } from '@type/app/todo';
@@ -9,6 +10,10 @@ interface TodoListSectionProps {
 }
 
 const TodoListSection = ({ todoList }: TodoListSectionProps) => {
+  const { mutate } = usePutTodoCheckById();
+
+  const onClick = (_id: string, check: boolean) => mutate({ _id, check });
+
   return (
     <S.Container>
       <S.ItemContainer head>
@@ -16,13 +21,17 @@ const TodoListSection = ({ todoList }: TodoListSectionProps) => {
         <S.TodoText head>Todo</S.TodoText>
         <S.DeadlineText>Deadline</S.DeadlineText>
       </S.ItemContainer>
-      {todoList.map((todo) => (
-        <S.ItemContainer key={todo.todoListId}>
-          <S.CheckText>
-            <TodoIcon color={todo.check ? Colors.toryblue : Colors.text03} />
+      {todoList.map(({ _id, check, name, deadline }) => (
+        <S.ItemContainer key={_id}>
+          <S.CheckText
+            onClick={() => {
+              onClick(_id, check);
+            }}
+          >
+            <TodoIcon color={check ? Colors.toryblue : Colors.text03} />
           </S.CheckText>
-          <S.TodoText>{todo.name}</S.TodoText>
-          <S.DeadlineText>{moment(todo.deadline).format('MM-DD')}</S.DeadlineText>
+          <S.TodoText>{name}</S.TodoText>
+          <S.DeadlineText>{moment(deadline).format('MM-DD')}</S.DeadlineText>
         </S.ItemContainer>
       ))}
     </S.Container>

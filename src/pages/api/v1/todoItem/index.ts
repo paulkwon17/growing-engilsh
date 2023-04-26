@@ -8,7 +8,6 @@ handler.get(async (_req: NextApiRequest, res: NextApiResponse) => {
   const data = await TodoItem.find({});
   res.status(200).json(data);
 });
-
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   const { name, deadline } = req.body;
   const todoItem = new TodoItem({ name, deadline });

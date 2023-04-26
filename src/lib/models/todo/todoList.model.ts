@@ -6,7 +6,7 @@ export const TodoListSchema = new Schema(
       type: Boolean,
       required: true,
     },
-    sid: {
+    memberId: {
       type: String,
       required: true,
     },
@@ -16,7 +16,7 @@ export const TodoListSchema = new Schema(
       required: true,
     },
   },
-  { timestamps: true },
+  { timestamps: true, versionKey: false },
 );
 
 const TodoList = models?.TodoList || mongoose.model('TodoList', TodoListSchema);
