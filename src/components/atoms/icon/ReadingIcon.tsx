@@ -1,7 +1,7 @@
 import Colors from '@styles/colors';
-import { IconProps } from '@type/app/iconProps';
+import { IconProps } from '@type/app';
 
-export const ReadingIcon = ({ color = Colors.black01 }: IconProps) => {
+export default function ReadingIcon({ color = Colors.black01 }: IconProps) {
   return (
     <svg
       version="1.0"
@@ -38,4 +38,4 @@ export const ReadingIcon = ({ color = Colors.black01 }: IconProps) => {
       </g>
     </svg>
   );
-};
+}

@@ -4,6 +4,6 @@ interface AdminNavBarProps {
   visible: boolean;
 }
 
-export const AdminNavBar = ({ visible }: AdminNavBarProps) => {
-  return <NavBar link="/admin" visible={visible}></NavBar>;
-};
+export default function AdminNavBar({ visible }: AdminNavBarProps) {
+  return <NavBar link="/admin" visible={visible} />;
+}

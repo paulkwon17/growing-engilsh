@@ -1,4 +1,4 @@
-export const GrowingIcon = () => {
+export default function GrowingIcon() {
   return (
     <svg
       width="100%"
@@ -22,4 +22,4 @@ export const GrowingIcon = () => {
       </defs>
     </svg>
   );
-};
+}

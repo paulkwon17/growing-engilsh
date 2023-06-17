@@ -4,6 +4,7 @@ import {
   PartialPageObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 import Colors from '@styles/colors';
+
 import NoticeSection from './NoticeSection';
 import ShortcutButton from './ShortcutButton';
 import * as S from './style';
@@ -14,11 +15,11 @@ const SHORTCUT_LIST = [
   { link: '/student/reading', icon: <ReadingIcon color={Colors.toryblue} />, text: 'Reading' },
 ];
 
-interface ShortCutSection {
+interface ShortCutSectionProps {
   results: (PageObjectResponse | PartialPageObjectResponse)[];
 }
 
-const ShortCutSection = ({ results }: ShortCutSection) => {
+function ShortCutSection({ results }: ShortCutSectionProps) {
   return (
     <S.Container>
       <S.ShortcutContainer>
@@ -29,6 +30,6 @@ const ShortCutSection = ({ results }: ShortCutSection) => {
       <NoticeSection results={results} />
     </S.Container>
   );
-};
+}
 
 export default ShortCutSection;

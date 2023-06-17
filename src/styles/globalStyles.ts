@@ -6,6 +6,7 @@ const globalStyles = css`
     padding: 0;
     margin: 0;
     font-family: 'Pretendard';
+    user-select: none;
   }
 `;
 

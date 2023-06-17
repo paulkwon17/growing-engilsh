@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import Colors from '@styles/colors';
-import { Body1, Body2, H1 } from '@styles/typography';
+import { Body1, Body2 } from '@styles/typography';
 
 export const Container = styled.div`
   padding: 24px;

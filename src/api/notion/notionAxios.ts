@@ -6,7 +6,7 @@ const notion = new Client({ auth: notionKey });
 
 export const getNotionDatabase = async (databaseId?: string) => {
   if (!databaseId) {
-    return;
+    return undefined;
   }
 
   const { results } = await notion.databases.query({

@@ -1,6 +1,7 @@
-import { GrowingIcon, MenuIcon } from '@components/atoms';
-import Link from 'next/link';
 import { ReactElement } from 'react';
+
+import { GrowingIcon, MenuIcon } from '@components/atoms';
+
 import * as S from './styles';
 
 interface NavBarProps {
@@ -9,13 +10,13 @@ interface NavBarProps {
   children?: ReactElement[];
 }
 
-const NavBar = ({ link, children, visible }: NavBarProps) => {
+export default function NavBar({ link, children = undefined, visible }: NavBarProps) {
   return (
     <S.Container visible={visible}>
       <S.ContentWrap>
-        <Link href={link} css={S.Logo}>
+        <S.Logo href={link}>
           <GrowingIcon />
-        </Link>
+        </S.Logo>
         {children && <S.NavContainer>{children}</S.NavContainer>}
         <S.Menu>
           <MenuIcon />
@@ -23,6 +24,4 @@ const NavBar = ({ link, children, visible }: NavBarProps) => {
       </S.ContentWrap>
     </S.Container>
   );
-};
-
-export default NavBar;
+}

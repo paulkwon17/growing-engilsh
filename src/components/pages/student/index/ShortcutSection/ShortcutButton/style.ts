@@ -1,9 +1,10 @@
-import { css } from '@emotion/react';
+import Link from 'next/link';
+
 import styled from '@emotion/styled';
 import Colors from '@styles/colors';
 import { Body1_B } from '@styles/typography';
 
-export const Container = css`
+export const Container = styled(Link)`
   flex: 1;
   padding-top: 8px;
   height: 120px;

@@ -1,13 +1,14 @@
 import { TodoIcon } from '@components/atoms';
 import Colors from '@styles/colors';
-import { Todo } from '@type/app/todo';
+import { Todo } from '@type/app';
+
 import * as S from './style';
 
 interface ProfileSectionProps {
   todoList: Todo[];
 }
 
-const ProfileSection = ({ todoList }: ProfileSectionProps) => {
+export default function ProfileSection({ todoList }: ProfileSectionProps) {
   const notCompleteTodoLength = todoList.filter((todo) => !todo.check).length;
 
   return (
@@ -21,6 +22,4 @@ const ProfileSection = ({ todoList }: ProfileSectionProps) => {
       </S.RemainNumberContainer>
     </S.Container>
   );
-};
-
-export default ProfileSection;
+}

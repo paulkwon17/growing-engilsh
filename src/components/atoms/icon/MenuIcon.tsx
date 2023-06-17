@@ -1,7 +1,7 @@
 import Colors from '@styles/colors';
-import { IconProps } from '@type/app/iconProps';
+import { IconProps } from '@type/app';
 
-export const MenuIcon = ({ color = Colors.black01 }: IconProps) => {
+export default function MenuIcon({ color = Colors.black01 }: IconProps) {
   return (
     <svg
       width="100%"
@@ -17,4 +17,4 @@ export const MenuIcon = ({ color = Colors.black01 }: IconProps) => {
       />
     </svg>
   );
-};
+}

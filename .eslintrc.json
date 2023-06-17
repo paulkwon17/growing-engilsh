@@ -1,7 +1,79 @@
 {
   "root": true,
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@next/next/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier", "@typescript-eslint", "import"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["tsconfig.json"],
+    "createDefaultProgram": true
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    },
+    "import/external-module-folders": [".yarn"]
+  },
   "rules": {
-    "no-unused-vars": "error"
+    "import/no-duplicates": ["warn", { "considerQueryString": true }],
+    "@typescript-eslint/no-floating-promises": 0, // Next.js Disabled 권장
+    "@typescript-eslint/no-non-null-assertion": 2,
+    "@typescript-eslint/no-unused-vars": 2,
+    "import/extensions": [
+      2,
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "mjs": "never",
+        "ts": "never",
+        "tsx": "never",
+        "css": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": 0,
+    "import/order": [
+      1,
+      {
+        "newlines-between": "always",
+        "groups": ["external", "builtin", "internal", "parent", "sibling"],
+        "pathGroups": [
+          {
+            "pattern": "react**",
+            "group": "builtin"
+          },
+          {
+            "pattern": "next/**",
+            "group": "builtin"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "no-restricted-globals": 1,
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "react/react-in-jsx-scope": 0, // Next.js Disabled 권장
+    "react/jsx-props-no-spreading": 0, // Next.js Disabled 권장
+    "react/require-default-props": [
+      "error",
+      {
+        "functions": "defaultArguments"
+      }
+    ]
+  },
+  "globals": {
+    "React": "writable"
   }
 }

@@ -1,2 +1,2 @@
-export * from './GrowingIcon';
-export * from './GrowingLogo';
+export { default as GrowingIcon } from './GrowingIcon';
+export { default as GrowingLogo } from './GrowingLogo';

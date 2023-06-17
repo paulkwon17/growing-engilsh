@@ -1,4 +1,4 @@
-export const GrowingLogo = () => {
+export default function GrowingLogo() {
   return (
     <svg
       width="779"
@@ -25,4 +25,4 @@ export const GrowingLogo = () => {
       </defs>
     </svg>
   );
-};
+}

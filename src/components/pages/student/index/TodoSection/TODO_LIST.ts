@@ -1,4 +1,4 @@
-import { Todo, TodoList, TodoItem } from '@type/app/todo';
+import { Todo, TodoList, TodoItem } from '@type/app';
 
 export const TODO_ITEM: TodoItem[] = [
   {

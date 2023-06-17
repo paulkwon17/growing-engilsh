@@ -1,11 +1,24 @@
-import { useGetTodoListInfo } from '@api/todoList';
-import { Todo } from '@type/app/todo';
 import { useEffect, useState } from 'react';
+
+import { useGetTodoListInfo } from '@api/todoList';
+import styled from '@emotion/styled';
+import { Todo } from '@type/app';
+
 import ProfileSection from './ProfileSection';
-import * as S from './style';
 import TodoListSection from './TodoListSection';
 
-export const TodoSection = () => {
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  * {
+    user-select: none;
+  }
+`;
+
+export default function TodoSection() {
   const [todoList, setTodoList] = useState<Todo[]>([]);
 
   const { data } = useGetTodoListInfo();
@@ -18,9 +31,9 @@ export const TodoSection = () => {
   }, [data]);
 
   return (
-    <S.Container>
+    <Container>
       <ProfileSection todoList={todoList} />
       {data && <TodoListSection todoList={data} />}
-    </S.Container>
+    </Container>
   );
-};
+}

@@ -1,11 +1,11 @@
-import { Nav } from '../Nav';
+import Nav from '../Nav';
 import NavBar from '../NavBar';
 
 interface TeacherNavBarProps {
   visible: boolean;
 }
 
-export const TeacherNavBar = ({ visible }: TeacherNavBarProps) => {
+export default function TeacherNavBar({ visible }: TeacherNavBarProps) {
   return (
     <NavBar link="/teacher" visible={visible}>
       <Nav link="/teacher/student">Student</Nav>
@@ -17,4 +17,4 @@ export const TeacherNavBar = ({ visible }: TeacherNavBarProps) => {
       <Nav link="/teacher/tools">Tools</Nav>
     </NavBar>
   );
-};
+}

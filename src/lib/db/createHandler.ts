@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nextConnect, { Middleware } from 'next-connect';
+
 import dbConnect from './dbConnect';
 
 const createHandler = (...middleware: Middleware<NextApiRequest, NextApiResponse>[]) => {

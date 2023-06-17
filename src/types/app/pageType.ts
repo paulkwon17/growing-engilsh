@@ -1,4 +1,4 @@
-import { PAGE_TYPE } from '@constants/app/pageType';
+import { PAGE_TYPE } from '@constants/app';
 import { ValueOf } from 'type-fest';
 
-export type pageType = ValueOf<typeof PAGE_TYPE>;
+export type PageType = ValueOf<typeof PAGE_TYPE>;

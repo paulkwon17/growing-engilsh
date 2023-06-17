@@ -1,7 +1,7 @@
 import Colors from '@styles/colors';
-import { IconProps } from '@type/app/iconProps';
+import { IconProps } from '@type/app';
 
-export const TodoIcon = ({ color = Colors.black01 }: IconProps) => {
+export default function TodoIcon({ color = Colors.black01 }: IconProps) {
   return (
     <svg
       width="100%"
@@ -20,4 +20,4 @@ export const TodoIcon = ({ color = Colors.black01 }: IconProps) => {
       />
     </svg>
   );
-};
+}

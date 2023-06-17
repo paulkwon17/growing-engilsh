@@ -1,12 +1,13 @@
+import { useEffect, useState } from 'react';
+
 import { getNotionDatabase } from '@api/notion';
 import {
   PageObjectResponse,
   PartialPageObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints';
 import { InferGetStaticPropsType } from 'next';
-import { useEffect, useState } from 'react';
 
-const NotionTest = ({ results }: InferGetStaticPropsType<typeof getStaticProps>) => {
+function NotionTest({ results }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [array, setArray] = useState<(PageObjectResponse | PartialPageObjectResponse)[]>([]);
 
   console.log(array);
@@ -14,12 +15,12 @@ const NotionTest = ({ results }: InferGetStaticPropsType<typeof getStaticProps>)
   useEffect(() => {
     setArray(results);
   }, [results]);
-  return <div></div>;
-};
+  return <div />;
+}
 
 export const getStaticProps = async () => {
   const { NOTION_NOTICE_DATABASE_ID } = process.env;
-  return await getNotionDatabase(NOTION_NOTICE_DATABASE_ID);
+  return getNotionDatabase(NOTION_NOTICE_DATABASE_ID);
 };
 
 export default NotionTest;

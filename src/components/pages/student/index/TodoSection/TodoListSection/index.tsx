@@ -1,15 +1,16 @@
 import { usePutTodoCheckById } from '@api/todoList';
 import { TodoIcon } from '@components/atoms';
 import Colors from '@styles/colors';
-import { Todo } from '@type/app/todo';
+import { Todo } from '@type/app';
 import moment from 'moment';
+
 import * as S from './style';
 
 interface TodoListSectionProps {
   todoList: Todo[];
 }
 
-const TodoListSection = ({ todoList }: TodoListSectionProps) => {
+export default function TodoListSection({ todoList }: TodoListSectionProps) {
   const { mutate } = usePutTodoCheckById();
 
   const onClick = (_id: string, check: boolean) => mutate({ _id, check });
@@ -36,6 +37,4 @@ const TodoListSection = ({ todoList }: TodoListSectionProps) => {
       ))}
     </S.Container>
   );
-};
-
-export default TodoListSection;
+}

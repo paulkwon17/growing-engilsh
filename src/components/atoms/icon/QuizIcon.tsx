@@ -1,7 +1,7 @@
 import Colors from '@styles/colors';
-import { IconProps } from '@type/app/iconProps';
+import { IconProps } from '@type/app';
 
-export const QuizIcon = ({ color = Colors.black01 }: IconProps) => {
+export default function QuizIcon({ color = Colors.black01 }: IconProps) {
   return (
     <svg
       version="1.0"
@@ -33,4 +33,4 @@ export const QuizIcon = ({ color = Colors.black01 }: IconProps) => {
       />
     </svg>
   );
-};
+}

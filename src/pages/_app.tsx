@@ -1,12 +1,23 @@
-import { Footer, NavigationBar } from '@components/blocks';
-import { PAGE_TYPE } from '@constants/app/pageType';
-import { css, Global } from '@emotion/react';
-import globalStyles from '@styles/globalStyles';
+import { throttle } from 'lodash';
+import { useState, useRef, useEffect, useMemo } from 'react';
+
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import { useState, useRef, useEffect, useMemo } from 'react';
-import { throttle } from 'lodash';
+
+import { Footer, NavigationBar } from '@components/blocks';
+import { PAGE_TYPE } from '@constants/app';
+import { Global } from '@emotion/react';
+import styled from '@emotion/styled';
+import globalStyles from '@styles/globalStyles';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const MainContainer = styled.div<{ showNav: boolean }>`
+  margin-top: ${({ showNav }) => (showNav ? '50px' : '0px')};
+  display: flex;
+  justify-content: center;
+  transition: 0.05s all linear;
+  flex: 1;
+`;
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(
@@ -55,20 +66,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <Global styles={globalStyles} />
       <NavigationBar pageType={pathname.split('/')[1]} visible={visible} />
-      <div css={styles.main(showNav() && visible)}>
+      <MainContainer showNav={showNav() && visible}>
         <Component {...pageProps} />
-      </div>
+      </MainContainer>
       <Footer />
     </QueryClientProvider>
   );
 }
-
-const styles = {
-  main: (showNav: boolean) => css`
-    margin-top: ${showNav ? '50px' : '0px'};
-    display: flex;
-    justify-content: center;
-    transition: 0.05s all linear;
-    flex: 1;
-  `,
-};

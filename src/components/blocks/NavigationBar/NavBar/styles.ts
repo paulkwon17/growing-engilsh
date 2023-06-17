@@ -1,5 +1,6 @@
-import { VIEWPORT } from '@constants/app/viewport';
-import { css } from '@emotion/react';
+import Link from 'next/link';
+
+import { VIEWPORT } from '@constants/app';
 import styled from '@emotion/styled';
 import Colors from '@styles/colors';
 
@@ -25,7 +26,7 @@ export const ContentWrap = styled.div`
   align-items: center;
 `;
 
-export const Logo = css`
+export const Logo = styled(Link)`
   width: 25px;
   height: 100%;
   cursor: pointer;

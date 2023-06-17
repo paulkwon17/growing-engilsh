@@ -1,7 +1,5 @@
-import { QuizIcon } from '@components/atoms';
-import Colors from '@styles/colors';
-import Link from 'next/link';
 import { ReactElement } from 'react';
+
 import * as S from './style';
 
 interface ShortucutButtonProps {
@@ -10,13 +8,13 @@ interface ShortucutButtonProps {
   text: string;
 }
 
-const ShortcutButton = ({ link, icon, text }: ShortucutButtonProps) => {
+function ShortcutButton({ link, icon, text }: ShortucutButtonProps) {
   return (
-    <Link css={S.Container} href={link}>
+    <S.Container href={link}>
       <S.Icon>{icon}</S.Icon>
       <S.ButtonText>{text}</S.ButtonText>
-    </Link>
+    </S.Container>
   );
-};
+}
 
 export default ShortcutButton;

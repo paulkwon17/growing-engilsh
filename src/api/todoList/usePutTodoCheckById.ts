@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
-import { PutTodoListInfoRequest } from '@type/api/todoList';
+import { PutTodoListInfoRequest } from '@type/api';
+
 import { putTodoListCheckById } from './todoListAxios';
 
 const usePutTodoCheckById = () => {

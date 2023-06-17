@@ -1,5 +1,6 @@
-import { QUERY_KEY } from '@constants/api/keys';
+import { QUERY_KEY } from '@constants/api';
 import { useQuery } from '@tanstack/react-query';
+
 import { getTodoItemInfo } from './todoItemAxios';
 
 const useGetTodoItemInfo = () => {

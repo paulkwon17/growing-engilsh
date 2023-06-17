@@ -1,14 +1,15 @@
-import { PAGE_TYPE } from '@constants/app/pageType';
-import { AdminNavBar } from './AdminNavBar';
-import { StudentNavBar } from './StudentNavBar';
-import { TeacherNavBar } from './TeacherNavBar';
+import { PAGE_TYPE } from '@constants/app';
+
+import AdminNavBar from './AdminNavBar';
+import StudentNavBar from './StudentNavBar';
+import TeacherNavBar from './TeacherNavBar';
 
 interface NavigationBarProps {
   pageType: string;
   visible: boolean;
 }
 
-export const NavigationBar = ({ pageType, visible }: NavigationBarProps) => {
+export default function NavigationBar({ pageType, visible }: NavigationBarProps) {
   switch (pageType) {
     case PAGE_TYPE.STUDENT:
       return <StudentNavBar visible={visible} />;
@@ -17,6 +18,6 @@ export const NavigationBar = ({ pageType, visible }: NavigationBarProps) => {
     case PAGE_TYPE.ADMIN:
       return <AdminNavBar visible={visible} />;
     default:
-      return <></>;
+      return null;
   }
-};
+}

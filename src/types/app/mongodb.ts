@@ -1,5 +1,5 @@
 import { Mongoose } from 'mongoose';
 
 declare global {
-  var mongoose: Mongoose;
+  let mongoose: Mongoose;
 }

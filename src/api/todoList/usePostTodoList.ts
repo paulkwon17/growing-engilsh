@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
-import { PostTodoListInfoRequest } from '@type/api/todoList';
+import { PostTodoListInfoRequest } from '@type/api';
+
 import { postTodoListInfo } from './todoListAxios';
 
 const usePostTodoListInfo = () => {
