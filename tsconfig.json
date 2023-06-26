@@ -34,7 +34,10 @@
       "@utils/*": ["utils/*"],
       "@styles/*": ["styles/*"],
       "@hoc": ["hoc"]
-    }
+    },
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

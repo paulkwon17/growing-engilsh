@@ -1,13 +1,13 @@
 import { TodoItemInfo } from './todoItem';
+import { CommonId } from './xhr';
 
 export interface TodoListInfo {
-  _id: string;
   todoItemId: TodoItemInfo;
   check: boolean;
   memberId: string;
 }
 
-export type GetTodoListInfoResponse = TodoListInfo[];
+export type GetTodoListInfoResponse = (TodoListInfo & CommonId)[];
 
 export interface PostTodoListInfoRequest {
   todoItemId: string;

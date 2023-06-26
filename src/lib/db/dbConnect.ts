@@ -1,17 +1,41 @@
-import { TodoItemSchema } from 'lib/models/todo/todoItem.model';
-import { TodoListSchema } from 'lib/models/todo/todoList.model';
-import mongoose from 'mongoose';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { connect } from 'mongoose';
 
-const { NEXT_PUBLIC_MONGODB_URI } = process.env;
+const DB_URI = process.env.NEXT_PUBLIC_MONGODB_URI ?? '';
 
-const dbConnect = async (_req: NextApiRequest, _res: NextApiResponse, next: Function) => {
-  if (!global.mongoose) {
-    global.mongoose = await mongoose.connect(NEXT_PUBLIC_MONGODB_URI ?? '');
-    mongoose.model('TodoItem', TodoItemSchema);
-    mongoose.model('TodoList', TodoListSchema);
+/**
+ * Global is used here to maintain a cached connection across hot reloads
+ * in development. This prevents connections from growing exponentially
+ * during API Route usage.
+ */
+let cached = global.mongoose;
+
+if (!cached) {
+  global.mongoose = { conn: null, promise: null };
+  cached = global.mongoose;
+}
+
+const dbConnect = async () => {
+  if (cached.conn) {
+    return cached.conn;
   }
-  return next();
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+    };
+
+    cached.promise = connect(DB_URI, opts).then((mon) => {
+      return mon;
+    });
+  }
+
+  try {
+    cached.conn = await cached.promise;
+  } catch (e) {
+    cached.promise = null;
+    throw e;
+  }
+
+  return cached.conn;
 };
 
 export default dbConnect;

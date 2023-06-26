@@ -1,3 +1,4 @@
+import handleError from '@api/xhr/handleError';
 import { useMutation } from '@tanstack/react-query';
 import { PutTodoListInfoRequest } from '@type/api';
 
@@ -8,7 +9,7 @@ const usePutTodoCheckById = () => {
     ({ _id, check }: PutTodoListInfoRequest) => putTodoListCheckById({ _id, check }),
     {
       onError: (err) => {
-        console.error(err);
+        handleError(err);
       },
     },
   );

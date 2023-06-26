@@ -1,15 +1,17 @@
+import { Global } from '@emotion/react';
+import styled from '@emotion/styled';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { throttle } from 'lodash';
-import { useState, useRef, useEffect, useMemo } from 'react';
-
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { useState, useRef, useEffect, useMemo } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import { Footer, NavigationBar } from '@components/blocks';
 import { PAGE_TYPE } from '@constants/app';
-import { Global } from '@emotion/react';
-import styled from '@emotion/styled';
 import globalStyles from '@styles/globalStyles';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const MainContainer = styled.div<{ showNav: boolean }>`
   margin-top: ${({ showNav }) => (showNav ? '50px' : '0px')};
@@ -67,6 +69,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <Global styles={globalStyles} />
       <NavigationBar pageType={pathname.split('/')[1]} visible={visible} />
       <MainContainer showNav={showNav() && visible}>
+        <ToastContainer />
+        {/* @ts-expect-error Async Server Component */}
         <Component {...pageProps} />
       </MainContainer>
       <Footer />

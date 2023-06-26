@@ -1,3 +1,4 @@
+import handleError from '@api/xhr/handleError';
 import { QUERY_KEY } from '@constants/api';
 import { useQuery } from '@tanstack/react-query';
 
@@ -9,7 +10,7 @@ const useGetNotionDatabase = (databaseId: string) => {
     () => getNotionDatabase(databaseId),
     {
       onError: (err) => {
-        console.error(err);
+        handleError(err);
       },
     },
   );

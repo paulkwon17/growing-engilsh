@@ -1,18 +1,24 @@
-import createHandler from 'lib/db/createHandler';
-import TodoItem from 'lib/models/todo/todoItem.model';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { ApiRequest, TodoItemInfo } from '@type/api';
+import dbConnect from 'lib/db/dbConnect';
+import { TodoItemModel } from 'lib/models';
+import type { NextApiResponse } from 'next';
 
-const handler = createHandler();
+const handler = async (req: ApiRequest<TodoItemInfo>, res: NextApiResponse) => {
+  await dbConnect();
 
-handler.get(async (_req: NextApiRequest, res: NextApiResponse) => {
-  const data = await TodoItem.find({});
-  res.status(200).json(data);
-});
-handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
-  const { name, deadline } = req.body;
-  const todoItem = new TodoItem({ name, deadline });
-  await todoItem.save();
-  res.status(200).json({ message: 'Test created successfully' });
-});
+  if (req.method === 'GET') {
+    const data = await TodoItemModel.find({});
+    res.status(200).json(data);
+    return;
+  }
+  if (req.method === 'POST') {
+    const todoItem = new TodoItemModel(req.body);
+    await todoItem.save();
+
+    res.status(200).json(todoItem.toJSON());
+    return;
+  }
+  throw new Error(`Unsupported HTTP method: ${req.method}`);
+};
 
 export default handler;

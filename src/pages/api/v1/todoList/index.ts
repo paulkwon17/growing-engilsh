@@ -1,18 +1,26 @@
-import createHandler from 'lib/db/createHandler';
-import TodoList from 'lib/models/todo/todoList.model';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { ApiRequest, TodoListInfo } from '@type/api';
+import dbConnect from 'lib/db/dbConnect';
+import { TodoListModel } from 'lib/models';
+import { NextApiResponse } from 'next';
 
-const handler = createHandler();
+const handler = async (req: ApiRequest<TodoListInfo>, res: NextApiResponse) => {
+  await dbConnect();
 
-handler.get(async (_req: NextApiRequest, res: NextApiResponse) => {
-  const data = await TodoList.find({}).populate('todoItemId');
-  res.status(200).json(data);
-});
-handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
-  const { todoItemId, check, memberId } = req.body;
-  const todoList = new TodoList({ todoItemId, check, memberId });
-  await todoList.save();
-  res.status(200).json({ message: 'Test created successfully' });
-});
+  if (req.method === 'GET') {
+    try {
+      const data = await TodoListModel.find({}).populate('todoItemId');
+      res.status(200).json(data);
+    } catch (error) {
+      res.status(500).json({ message: 'Internal server error' });
+    }
+    return;
+  }
+  if (req.method === 'POST') {
+    const { todoItemId, check, memberId } = req.body;
+    const todoList = new TodoListModel({ todoItemId, check, memberId });
+    await todoList.save();
+    res.status(200).json({ message: 'Test created successfully' });
+  }
+};
 
 export default handler;
