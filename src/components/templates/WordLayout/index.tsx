@@ -111,11 +111,11 @@ export default function WordLayout({ wordList = undefined }: WordLayoutProps) {
 
   useEffect(() => {
     if (!isShowAnswer) {
-      setIsShowAnswerText((prev) => !prev);
+      setIsShowAnswerText(false);
       return;
     }
     setTimeout(() => {
-      setIsShowAnswerText((prev) => !prev);
+      setIsShowAnswerText(true);
     }, 200);
   }, [isShowAnswer]);
 
