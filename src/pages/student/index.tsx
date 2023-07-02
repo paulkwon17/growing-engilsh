@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
-import ShortCutSection from '@components/pages/Student/index/ShortcutSection';
-import TodoSection from '@components/pages/Student/index/TodoSection';
+import ShortCutSection from '@components/pages/Student/main/ShortcutSection';
+import TodoSection from '@components/pages/Student/main/TodoSection';
 import { VIEWPORT } from '@constants/app';
 
 const Container = styled.div`
