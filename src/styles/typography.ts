@@ -20,7 +20,7 @@ export const fontConfig = localFont({
       style: 'normal',
     },
     {
-      path: '../../public/assets/fonts/Pretendard-Semibold.ttf',
+      path: '../../public/assets/fonts/Pretendard-Medium.ttf',
       weight: '500',
       style: 'normal',
     },
