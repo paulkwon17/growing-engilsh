@@ -1,13 +1,16 @@
-import { prop } from '@typegoose/typegoose';
-import { nanoid } from 'nanoid';
+import mongoose, { models } from 'mongoose';
 
-export default class TodoItem {
-  @prop({ default: () => nanoid(9) })
-  _id: string;
+const TodoItemSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  deadline: {
+    type: String,
+    required: true,
+  },
+});
 
-  @prop({ required: true })
-  name: string;
+const TodoItemModel = models?.TodoItem || mongoose.model('TodoItem', TodoItemSchema);
 
-  @prop({ required: true })
-  deadline: string;
-}
+export default TodoItemModel;

@@ -1,7 +1,9 @@
+import { Document } from 'mongoose';
+import type { NextApiResponse } from 'next';
+
 import { ApiRequest, TodoItemInfo } from '@type/api';
 import dbConnect from 'lib/db/dbConnect';
 import { TodoItemModel } from 'lib/models';
-import type { NextApiResponse } from 'next';
 
 const handler = async (req: ApiRequest<TodoItemInfo>, res: NextApiResponse) => {
   await dbConnect();
@@ -12,7 +14,7 @@ const handler = async (req: ApiRequest<TodoItemInfo>, res: NextApiResponse) => {
     return;
   }
   if (req.method === 'POST') {
-    const todoItem = new TodoItemModel(req.body);
+    const todoItem = new TodoItemModel(req.body) as Document;
     await todoItem.save();
 
     res.status(200).json(todoItem.toJSON());

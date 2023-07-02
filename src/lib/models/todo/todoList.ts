@@ -1,18 +1,24 @@
-import { prop } from '@typegoose/typegoose';
-import { nanoid } from 'nanoid';
+import mongoose, { Schema, models } from 'mongoose';
 
-import TodoItem from './todoItem';
+export const TodoListSchema = new Schema(
+  {
+    check: {
+      type: Boolean,
+      required: true,
+    },
+    memberId: {
+      type: String,
+      required: true,
+    },
+    todoItemId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'TodoItem',
+      required: true,
+    },
+  },
+  { timestamps: true, versionKey: false },
+);
 
-export default class TodoList {
-  @prop({ default: () => nanoid(9) })
-  _id: string;
+const TodoListModel = models?.TodoList || mongoose.model('TodoList', TodoListSchema);
 
-  @prop({ deafult: false, required: true })
-  check: boolean;
-
-  @prop({ required: true })
-  memberId: string;
-
-  @prop({ ref: () => TodoItem })
-  todoItemId: string;
-}
+export default TodoListModel;

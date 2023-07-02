@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 import Colors from '@styles/colors';
 import { Body1 } from '@styles/typography';
 
@@ -14,7 +15,7 @@ const Container = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${Colors.toryblue};
+  background-color: ${Colors.growingBlue};
   border: none;
   border-radius: 10px;
   color: ${Colors.white01};
@@ -24,8 +25,8 @@ const Container = styled.button`
   text-decoration: none;
 
   &:hover {
-    background-color: ${Colors.toryblueTint};
-    color: ${Colors.toryblue};
+    background-color: ${Colors.growingBlueTint};
+    color: ${Colors.growingBlue};
   }
   &:disabled {
     background-color: ${Colors.white06};

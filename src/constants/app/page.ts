@@ -4,4 +4,4 @@ export const PAGE_TYPE = {
   ADMIN: 'admin',
 } as const;
 
-export const SHOW_NAV_PAGE_LIST: string[] = [];
+export const HIDE_NAV_PAGE_LIST: string[] = ['/student/word'];

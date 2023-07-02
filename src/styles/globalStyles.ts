@@ -1,12 +1,19 @@
 import { css } from '@emotion/react';
 
-const globalStyles = css`
+interface GlobalStyleProps {
+  scrollBlock?: boolean;
+}
+
+const globalStyles = ({ scrollBlock }: GlobalStyleProps) => css`
   * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Pretendard';
     user-select: none;
+    ${scrollBlock ? 'overflow: hidden' : ''};
+  }
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available;
   }
 `;
 

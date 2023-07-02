@@ -1,41 +1,13 @@
 const Colors = {
-  blueberry: '#7344e5',
-  blueberryShade: '#33277a',
-  blueberryTone: '#4d3bb8',
-  blueberryTint: '#b3a7fa',
+  growingBlue: '#1450AA',
+  growingBlueShade: '#0c3066',
+  growingBlueTone: '#39629f',
+  growingBlueTint: '#8cb5f2',
 
-  lemonZest: '#ffee44',
-  lemonZestShade: '#807722',
-  lemonZestTone: '#bfb333',
-  lemonZestTint: '#fff7a2',
+  intrinsicGray: '#16161D',
 
-  red: '#C80C00',
-  redShade: '#801c00',
-  redTone: '#8B4A4A',
-  redTint: '#ff9b80',
-
-  coral: '#ff896f',
-  coralShade: '#804538',
-  coralTone: '#bf6753',
-  coralTint: '#ffc4b7',
-
-  turquoise: '#28d0d5',
-  turquoiseShade: '#14686a',
-  turquoiseTone: '#1e9ca0',
-  turquoiseTint: '#93e7ea',
-
-  skyblue: '#49d1fc',
-  skyblueShade: '#24687e',
-  skyblueTone: '#379dbd',
-  skyblueTint: '#a4e8fe',
-
-  toryblue: '#1450AA',
-  toryblueShade: '#01398D',
-  toryblueTone: '#537DBE',
-  toryblueTint: '#CAD7EB',
-
-  black01: '#0a0b0c',
-  black02: '#18161d',
+  black01: '#28282B',
+  black02: '#36454F',
   black03: '#2a2c3d',
   black04: '#272430',
   black05: '#2a2731',

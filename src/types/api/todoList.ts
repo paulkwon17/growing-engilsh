@@ -2,7 +2,7 @@ import { TodoItemInfo } from './todoItem';
 import { CommonId } from './xhr';
 
 export interface TodoListInfo {
-  todoItemId: TodoItemInfo;
+  todoItemId: TodoItemInfo & CommonId;
   check: boolean;
   memberId: string;
 }

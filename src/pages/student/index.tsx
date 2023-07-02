@@ -1,9 +1,8 @@
-import { getNotionDatabase } from '@api/notion';
-import ShortCutSection from '@components/pages/student/index/ShortcutSection';
-import TodoSection from '@components/pages/student/index/TodoSection';
-import { VIEWPORT } from '@constants/app';
 import styled from '@emotion/styled';
-import { InferGetStaticPropsType } from 'next';
+
+import ShortCutSection from '@components/pages/Student/index/ShortcutSection';
+import TodoSection from '@components/pages/Student/index/TodoSection';
+import { VIEWPORT } from '@constants/app';
 
 const Container = styled.div`
   width: min(100%, 1920px);
@@ -18,16 +17,11 @@ const Container = styled.div`
   }
 `;
 
-export default function StudentMain({ results }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function StudentMain() {
   return (
     <Container>
       <TodoSection />
-      <ShortCutSection results={results} />
+      <ShortCutSection />
     </Container>
   );
 }
-
-export const getStaticProps = async () => {
-  const { NOTION_NOTICE_DATABASE_ID } = process.env;
-  return getNotionDatabase(NOTION_NOTICE_DATABASE_ID);
-};

@@ -1,8 +1,9 @@
+import moment from 'moment';
+
 import { usePutTodoCheckById } from '@api/todoList';
 import { TodoIcon } from '@components/atoms';
 import Colors from '@styles/colors';
 import { Todo } from '@type/app';
-import moment from 'moment';
 
 import * as S from './style';
 
@@ -29,7 +30,7 @@ export default function TodoListSection({ todoList }: TodoListSectionProps) {
               onClick(_id, check);
             }}
           >
-            <TodoIcon color={check ? Colors.toryblue : Colors.text03} />
+            <TodoIcon color={check ? Colors.growingBlue : Colors.text03} />
           </S.CheckText>
           <S.TodoText>{name}</S.TodoText>
           <S.DeadlineText>{moment(deadline).format('MM-DD')}</S.DeadlineText>

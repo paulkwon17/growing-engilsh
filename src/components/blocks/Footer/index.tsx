@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 import Colors from '@styles/colors';
 import { Caption2 } from '@styles/typography';
 
@@ -17,7 +18,10 @@ const Container = styled.div`
   }
 `;
 
-export default function Footer() {
+export default function Footer({ hidden }: { hidden: boolean }) {
+  if (hidden) {
+    return null;
+  }
   return (
     <Container>
       <span>CopyrightⒸ {new Date().getFullYear()} All right reserved by Growing English</span>

@@ -1,6 +1,6 @@
+import styled from '@emotion/styled';
 import Link from 'next/link';
 
-import styled from '@emotion/styled';
 import Colors from '@styles/colors';
 import { Body1_B } from '@styles/typography';
 

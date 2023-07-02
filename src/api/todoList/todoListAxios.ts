@@ -1,9 +1,10 @@
+import axios, { AxiosResponse } from 'axios';
+
 import {
   GetTodoListInfoResponse,
   PostTodoListInfoRequest,
   PutTodoListInfoRequest,
 } from '@type/api';
-import axios, { AxiosResponse } from 'axios';
 
 export const getTodoListInfo = async () => {
   const { data }: AxiosResponse<GetTodoListInfoResponse> = await axios.get('/api/v1/todoList');

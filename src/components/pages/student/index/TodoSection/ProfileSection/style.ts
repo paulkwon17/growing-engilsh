@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 import Colors from '@styles/colors';
 import { H1 } from '@styles/typography';
 
@@ -33,5 +34,5 @@ export const Todo = styled.div`
 
 export const RemainNumber = styled.span`
   ${H1}
-  color: ${Colors.toryblue};
+  color: ${Colors.growingBlue};
 `;
